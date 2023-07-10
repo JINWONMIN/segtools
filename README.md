@@ -8,7 +8,7 @@
 
 ![architecture](property/architecture.png)
 
-- session manager에서 각 요청에 대해 알맞게 gpu에 배분 및 관리
+- session manager에서 각 요청에 대해 알맞게 gpu에 배분 및 관리 -> 현재는 `cuda:num` 디바이스 하나에만 모델을 할당하였음. (device는 총 4개)
 - 클라이언트로부터 들어온 모든 requests를 Session Manager 를 통해 큐잉
   - 큐: session id
 - session id 순으로 캐시 테이블에서 데이터를 불러오고 저장
