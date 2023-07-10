@@ -31,11 +31,8 @@
         }
 ```
 - 코드 리팩토링
-  - ex1: 
-    - app.py 
-      - api/sam/router.py
-      - api/sam/crud.py
-      - api/sam/schema.py
+  - example
+  ![example_schema](property/example_schema.png)
 
 
 
