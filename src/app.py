@@ -21,7 +21,7 @@ def read_content(file_path: str) -> str:
         content = f.read()
     return content
 
-sam_checkpoint = "/home/xaiplanet/workspace/LABELING-TOOL-API-SERVER/models/sam_vit_h_4b8939.pth" # "sam_vit_h_4b8939.pth" or "sam_vit_l_0b3195.pth" or "sam_vit_b_01ec64.pth
+sam_checkpoint = "models/sam_vit_h_4b8939.pth" # "sam_vit_h_4b8939.pth" or "sam_vit_l_0b3195.pth" or "sam_vit_b_01ec64.pth
 model_type = "vit_h" # "vit_l" or "vit_h"
 # device = "cuda" if torch.cuda.is_available() else "cpu"
 device = "cuda:3"
