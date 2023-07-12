@@ -322,10 +322,10 @@
                 }
                 formData.append("type", typeList);
                 formData.append("click_list", clickList);
-                formData.append("session_id", "1111")
+                formData.append("session_id", imageName)
 
                 // Send a POST request to the server API
-                fetch("/click", {
+                fetch("/api/sam/click", {
                     method: "POST",
                     body: formData,
                 })
@@ -520,8 +520,8 @@
 
                     const formData = new FormData();
                     formData.append("mask_idx", mask_idx);
-                    formData.append("session_id", "1111")
-                    fetch("/finish_click", {
+                    formData.append("session_id", imageName)
+                    fetch("/api/sam/finish_click", {
                         method: "POST",
                         body: formData,
                     })
@@ -576,6 +576,7 @@
                 zipfileBase64 = null;
                 // Extract and store the uploaded image name
                 imageName = file.name.split(".")[0];
+                const undoImgName = imageName
                 console.log(imageName);
                 const image = new Image();
                 image.onload = async () => {
@@ -630,8 +631,8 @@
                         new Blob([imageByteArray]),
                         "image.png"
                     );
-                    formData.append("session_id", "1111")
-                    fetch("/image", {
+                    formData.append("session_id", imageName)
+                    fetch("/api/sam/image", {
                         method: "POST",
                         body: formData,
                     })
@@ -744,9 +745,9 @@
                     formData.append("start_y", startY);
                     formData.append("end_x", endX);
                     formData.append("end_y", endY);
-                    formData.append("session_id", "1111")
+                    formData.append("session_id", imageName)
                     // Send a POST request to the server API
-                    fetch("/rect", {
+                    fetch("/api/sam/rect", {
                         method: "POST",
                         body: formData,
                     })
@@ -916,9 +917,9 @@
             });
             
             const formData = new FormData();
-            formData.append('session_id', '1111')
+            formData.append('session_id', imageName)
             function sendUndoRequest() {
-                fetch("/undo", {
+                fetch("/api/sam/undo", {
                     method: "POST",
                     body: formData,
 
@@ -1137,7 +1138,7 @@
                 // Show sparkles when processing starts
                 toggleSparkles(true);
                 // Send the image data to the server
-                fetch("/everything", {
+                fetch("/api/sam/everything", {
                     method: "POST",
                     headers: {
                       "Content-Type": "application/json",
@@ -1145,7 +1146,7 @@
                     body: JSON.stringify({
                       points_per_side: selectPPs(),
                       points_per_batch: selectPPb(),
-                      session_id: '1111',
+                      session_id: imageName,
                     })
                 })
                     .then((response) => response.json())
