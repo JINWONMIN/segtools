@@ -1,0 +1,22 @@
+name: seg-drawer
+channels:
+  - pytorch
+  - conda-forge
+  - defaults
+dependencies:
+  - pip=23.0.1
+  - python=3.8.16
+  # - pytorch>=1.7
+  # - torchvision>=0.8
+  - pip:
+    - git+https://github.com/facebookresearch/segment-anything.git
+    - opencv-python
+    - pycocotools
+    - matplotlib
+    - onnxruntime
+    - onnx
+    - fastapi
+    - "uvicorn[standard]"
+prefix: /Users/athena/opt/anaconda3/envs/seg-drawer
+
+# COMMAND $ conda env create -f environment.yaml
